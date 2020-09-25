@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tenis-opdracht.web", "Tenis-opdracht.web\Tenis-opdracht.web.csproj", "{AB3F2A07-7AE8-44B9-A247-428588EFBB58}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{75B4A75F-8FA3-42F4-AF4A-69B4FB4327DD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{FE8DF452-9EF1-4212-A905-CF9172366DC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tenis-opdracht.DAL", "Tenis-opdracht.DAL\Tenis-opdracht.DAL.csproj", "{A9CD8357-9876-462D-B601-B8C3E73B9C12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tenis-opdracht.BAL", "Tenis-opdracht.BAL\Tenis-opdracht.BAL.csproj", "{8BBB6410-B17E-42AE-A031-2F01192F8160}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tenis-opdracht", "Tenis-opdracht\Tenis-opdracht.csproj", "{18FAEBB1-D904-4C82-976E-60CD18C773B9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB3F2A07-7AE8-44B9-A247-428588EFBB58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB3F2A07-7AE8-44B9-A247-428588EFBB58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB3F2A07-7AE8-44B9-A247-428588EFBB58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB3F2A07-7AE8-44B9-A247-428588EFBB58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9CD8357-9876-462D-B601-B8C3E73B9C12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9CD8357-9876-462D-B601-B8C3E73B9C12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9CD8357-9876-462D-B601-B8C3E73B9C12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9CD8357-9876-462D-B601-B8C3E73B9C12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BBB6410-B17E-42AE-A031-2F01192F8160}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BBB6410-B17E-42AE-A031-2F01192F8160}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BBB6410-B17E-42AE-A031-2F01192F8160}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BBB6410-B17E-42AE-A031-2F01192F8160}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18FAEBB1-D904-4C82-976E-60CD18C773B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18FAEBB1-D904-4C82-976E-60CD18C773B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18FAEBB1-D904-4C82-976E-60CD18C773B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18FAEBB1-D904-4C82-976E-60CD18C773B9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AB3F2A07-7AE8-44B9-A247-428588EFBB58} = {75B4A75F-8FA3-42F4-AF4A-69B4FB4327DD}
+		{A9CD8357-9876-462D-B601-B8C3E73B9C12} = {75B4A75F-8FA3-42F4-AF4A-69B4FB4327DD}
+		{8BBB6410-B17E-42AE-A031-2F01192F8160} = {75B4A75F-8FA3-42F4-AF4A-69B4FB4327DD}
+		{18FAEBB1-D904-4C82-976E-60CD18C773B9} = {FE8DF452-9EF1-4212-A905-CF9172366DC9}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7C54A823-393C-46A4-868A-107E35B47D79}
+	EndGlobalSection
+EndGlobal
