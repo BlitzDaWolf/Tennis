@@ -5,6 +5,11 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>Tenis_opdracht</RootNamespace>
     <UseWPF>true</UseWPF>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Tenis-opdracht.Data\Tenis-opdracht.Data.csproj" />
+  </ItemGroup>
 
 </Project>

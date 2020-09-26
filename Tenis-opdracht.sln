@@ -3,17 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29911.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tenis-opdracht.web", "Tenis-opdracht.web\Tenis-opdracht.web.csproj", "{AB3F2A07-7AE8-44B9-A247-428588EFBB58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tenis-opdracht.web", "Tenis-opdracht.web\Tenis-opdracht.web.csproj", "{AB3F2A07-7AE8-44B9-A247-428588EFBB58}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{75B4A75F-8FA3-42F4-AF4A-69B4FB4327DD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{FE8DF452-9EF1-4212-A905-CF9172366DC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tenis-opdracht.DAL", "Tenis-opdracht.DAL\Tenis-opdracht.DAL.csproj", "{A9CD8357-9876-462D-B601-B8C3E73B9C12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tenis-opdracht.DAL", "Tenis-opdracht.DAL\Tenis-opdracht.DAL.csproj", "{A9CD8357-9876-462D-B601-B8C3E73B9C12}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tenis-opdracht.BAL", "Tenis-opdracht.BAL\Tenis-opdracht.BAL.csproj", "{8BBB6410-B17E-42AE-A031-2F01192F8160}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tenis-opdracht.BAL", "Tenis-opdracht.BAL\Tenis-opdracht.BAL.csproj", "{8BBB6410-B17E-42AE-A031-2F01192F8160}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tenis-opdracht", "Tenis-opdracht\Tenis-opdracht.csproj", "{18FAEBB1-D904-4C82-976E-60CD18C773B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tenis-opdracht", "Tenis-opdracht\Tenis-opdracht.csproj", "{18FAEBB1-D904-4C82-976E-60CD18C773B9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sahred", "Sahred", "{05F1A340-067E-4FA1-8390-C48A25C9D93A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tenis-opdracht.Data", "Tenis-opdracht.Data\Tenis-opdracht.Data.csproj", "{3F959BFB-2B3F-4DE3-8207-C4993A5C2663}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +41,10 @@ Global
 		{18FAEBB1-D904-4C82-976E-60CD18C773B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18FAEBB1-D904-4C82-976E-60CD18C773B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18FAEBB1-D904-4C82-976E-60CD18C773B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F959BFB-2B3F-4DE3-8207-C4993A5C2663}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F959BFB-2B3F-4DE3-8207-C4993A5C2663}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F959BFB-2B3F-4DE3-8207-C4993A5C2663}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F959BFB-2B3F-4DE3-8207-C4993A5C2663}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +54,7 @@ Global
 		{A9CD8357-9876-462D-B601-B8C3E73B9C12} = {75B4A75F-8FA3-42F4-AF4A-69B4FB4327DD}
 		{8BBB6410-B17E-42AE-A031-2F01192F8160} = {75B4A75F-8FA3-42F4-AF4A-69B4FB4327DD}
 		{18FAEBB1-D904-4C82-976E-60CD18C773B9} = {FE8DF452-9EF1-4212-A905-CF9172366DC9}
+		{3F959BFB-2B3F-4DE3-8207-C4993A5C2663} = {05F1A340-067E-4FA1-8390-C48A25C9D93A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7C54A823-393C-46A4-868A-107E35B47D79}
