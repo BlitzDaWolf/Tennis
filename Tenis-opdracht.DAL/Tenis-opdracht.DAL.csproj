@@ -9,4 +9,12 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Context\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Tenis-opdracht.Data\Tenis-opdracht.Data.csproj" />
+  </ItemGroup>
+
 </Project>
