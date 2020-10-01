@@ -15,9 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tenis-opdracht.BAL", "Tenis
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tenis-opdracht", "Tenis-opdracht\Tenis-opdracht.csproj", "{18FAEBB1-D904-4C82-976E-60CD18C773B9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sahred", "Sahred", "{05F1A340-067E-4FA1-8390-C48A25C9D93A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{05F1A340-067E-4FA1-8390-C48A25C9D93A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tenis-opdracht.Data", "Tenis-opdracht.Data\Tenis-opdracht.Data.csproj", "{3F959BFB-2B3F-4DE3-8207-C4993A5C2663}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tenis-opdracht.Data", "Tenis-opdracht.Data\Tenis-opdracht.Data.csproj", "{3F959BFB-2B3F-4DE3-8207-C4993A5C2663}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

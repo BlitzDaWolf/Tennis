@@ -4,15 +4,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using Tenis_opdracht.DAL.Context;
 
 namespace Tenis_opdracht.DAL
 {
-    public class GenericRepository<TEntity, T> where TEntity : class where T : DbContext
+    public class GenericRepository<TEntity> where TEntity : class
     {
-        internal T context;
+        internal TenisContext context;
         internal DbSet<TEntity> dbSet;
 
-        public GenericRepository(T context)
+        public GenericRepository(TenisContext context)
         {
             this.context = context;
             this.dbSet = context.Set<TEntity>();
