@@ -18,16 +18,24 @@ namespace Tenis_opdracht.BAL
         }
 
         #region private repositorys
-        private GenericRepository<Gender> genderRepository;
-        private GenericRepository<MemberRole> memberRoleRepository;
-        private GenericRepository<Member> memberRepository;
-        private GenericRepository<Role> roleRepository;
+        private GenericRepository<Fine>         fineRepository;
+        private GenericRepository<Game>         gameRepository;
+        private GenericRepository<GameResult>   gameResultRepository;
+        private GenericRepository<Gender>       genderRepository;
+        private GenericRepository<League>       leagueRepository;
+        private GenericRepository<Member>       memberRepository;
+        private GenericRepository<MemberRole>   memberRoleRepository;
+        private GenericRepository<Role>         roleRepository;
         #endregion
 
         #region public repositorys
+        public GenericRepository<Fine> FineRepository => this.fineRepository ?? new GenericRepository<Fine>(context);
+        public GenericRepository<Game> GameRepository => this.gameRepository ?? new GenericRepository<Game>(context);
+        public GenericRepository<GameResult> GameResultRepository => this.gameResultRepository ?? new GenericRepository<GameResult>(context);
         public GenericRepository<Gender> GenderRepository => this.genderRepository ?? new GenericRepository<Gender>(context);
-        public GenericRepository<MemberRole> MemberRoleRepository => this.memberRoleRepository ?? new GenericRepository<MemberRole>(context);
-        public GenericRepository<Member> MemberRepository => this.memberRepository ?? new GenericRepository<Member>(context);
+        public GenericRepository<League> LeagueRepository => this.leagueRepository ?? new GenericRepository<League>(context);
+        public GenericRepository<Member> MemberRepository => this.memberRepository?? new GenericRepository<Member>(context);
+        public GenericRepository<MemberRole> MemberRoleRepository => this.memberRoleRepository?? new GenericRepository<MemberRole>(context);
         public GenericRepository<Role> RoleRepository => this.roleRepository ?? new GenericRepository<Role>(context);
         #endregion
 

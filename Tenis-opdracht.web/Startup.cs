@@ -29,7 +29,9 @@ namespace Tenis_opdracht.web
         {
             services.AddControllers();
 
-            services.AddDbContext<TenisContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("conection")));
+            services.AddDbContext<TenisContext>(opt => {
+                opt.UseSqlServer(Configuration.GetConnectionString("conection"), b => b.MigrationsAssembly("Tenis-opdracht.web"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

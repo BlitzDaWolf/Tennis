@@ -57,6 +57,7 @@ namespace Tenis_opdracht.DAL
 
         public virtual void Delete(TEntity entityToDelete)
         {
+            if (entityToDelete == null) return;
             if(context.Entry(entityToDelete).State == EntityState.Detached)
             {
                 dbSet.Attach(entityToDelete);

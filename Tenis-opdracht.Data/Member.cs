@@ -12,6 +12,7 @@ namespace Tenis_opdracht.Data
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime BirthDate { get; set; }
+        public int GenderId { get; set; }
         public Gender Gender { get; set; }
         public string Address { get; set; }
         public string Number { get; set; }
