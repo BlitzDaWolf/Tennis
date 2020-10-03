@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Tenis_opdracht.DAL.Context;
+using Tenis_opdracht.BAL;
 
 namespace Tenis_opdracht.web
 {
@@ -32,11 +33,20 @@ namespace Tenis_opdracht.web
             services.AddDbContext<TenisContext>(opt => {
                 opt.UseSqlServer(Configuration.GetConnectionString("conection"), b => b.MigrationsAssembly("Tenis-opdracht.web"));
             });
+
+            services.AddScoped<UnitOfWork>();
+            services.AddSwaggerGen();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

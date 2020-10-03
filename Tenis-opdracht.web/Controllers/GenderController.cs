@@ -15,31 +15,15 @@ namespace Tenis_opdracht.web.Controllers
     {
         private readonly UnitOfWork unitOfWork;
 
-        public GenderController(TenisContext context)
+        public GenderController(UnitOfWork context)
         {
-            unitOfWork = new UnitOfWork(context);
+            unitOfWork = context;
         }
 
         [HttpGet]
         public IEnumerable<Gender> Get()
         {
-            /*unitOfWork.GenderRepository.Insert(new Gender { Name = "Male" });
-            unitOfWork.GenderRepository.Insert(new Gender { Name = "Female" });
-            unitOfWork.Save();*/
             return unitOfWork.GenderRepository.Get();
-        }
-        /*[HttpGet("{id}")]
-        public Gender Get(byte id)
-        {
-            return unitOfWork.GenderRepository.GetByID(id);
-        }*/
-
-        [HttpGet("delete")]
-        public int delete()
-        {
-            unitOfWork.GenderRepository.Delete(unitOfWork.GenderRepository.GetByID((byte)1));
-            unitOfWork.Save();
-            return 0;
         }
     }
 }

@@ -41,12 +41,6 @@ namespace Tenis_opdracht.DAL.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<IIsDeleted>(e =>
-            {
-                e.HasQueryFilter(p => !p.IsDeleted);
-                e.Property(c => c.IsDeleted).HasDefaultValue(false);
-            });
-
             modelBuilder.Entity<Fine>(e => 
             {
                 e.HasKey(c => c.Id);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using Tenis_opdracht.DAL;
 using Tenis_opdracht.DAL.Context;
@@ -11,7 +12,10 @@ namespace Tenis_opdracht.BAL
     {
         public TenisContext context = new TenisContext();
 
-        public UnitOfWork() { }
+        public UnitOfWork()
+        {
+            var i = 0;
+        }
         public UnitOfWork(TenisContext context)
         {
             this.context = context;
