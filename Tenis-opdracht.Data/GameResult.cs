@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Tenis_opdracht.Data
+﻿namespace Tenis_opdracht.Data
 {
     public class GameResult : IIsDeleted
     {
