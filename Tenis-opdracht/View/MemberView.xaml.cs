@@ -8,17 +8,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Tenis_opdracht
+namespace Tenis_opdracht.View
 {
     /// <summary>
-    /// Interaction logic for Page1.xaml
+    /// Interaction logic for MemberView.xaml
     /// </summary>
-    public partial class Page1 : Page
+    public partial class MemberView : Window
     {
-        public Page1()
+        public MemberView()
         {
             InitializeComponent();
         }

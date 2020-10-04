@@ -1,9 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Linq;
-using System.Windows.Data;
-using System.Windows.Documents;
 using Tenis_opdracht.Data;
 using Tenis_opdracht.Api;
 
@@ -19,7 +15,17 @@ namespace Tenis_opdracht
         public MainWindow()
         {
             InitializeComponent();
-            ApiHelper.InitializeClient(new ApiCallerMock());
+            ApiHelper.InitializeClient(new ApiCaller());
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            await ApiHelper.apiCaller.GetAll<Member>("a=5", "t=5");
         }
     }
 }
