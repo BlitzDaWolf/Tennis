@@ -19,9 +19,7 @@ namespace Tenis_opdracht.Data
         public string PhoneNr { get; set; }
         public bool IsDeleted { get; set; }
 
-        public string FullName()
-        {
-            return $"{LastName} {FirstName}";
-        }
+        public string FullName => $"{LastName} {FirstName}";
+        public string FullAddress => $"{Address} {Number} {Addition} | {City} {Zipcode}";
     }
 }
