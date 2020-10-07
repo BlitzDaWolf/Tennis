@@ -145,6 +145,10 @@ namespace Tenis_opdracht.DAL.Context
                 e.HasQueryFilter(p => !p.IsDeleted);
                 e.Property(c => c.IsDeleted).HasDefaultValue(false);
 
+                e.HasMany(c => c.Fines).WithOne(c => c.Member).HasForeignKey(c => c.MemberId);
+                e.HasMany(c => c.Roles).WithOne(c => c.Member).HasForeignKey(c => c.MemberId);
+                e.HasMany(c => c.Games).WithOne(c => c.Member).HasForeignKey(c => c.MemberId);
+
                 e.HasOne(c => c.Gender).WithMany().HasForeignKey(k => k.GenderId);
 
                 e.ToTable("tblMembers");

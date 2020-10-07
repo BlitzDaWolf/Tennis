@@ -70,5 +70,10 @@ namespace Tenis_opdracht.DAL
             dbSet.Attach(entityToUpdate);
             context.Entry(entityToUpdate).State = EntityState.Modified;
         }
+
+        public virtual List<TEntity> FromQuery(string query, params object[] parameters)
+        {
+            return dbSet.FromSqlRaw(query, parameters).ToList();
+        }
     }
 }

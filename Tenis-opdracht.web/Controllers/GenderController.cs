@@ -23,7 +23,7 @@ namespace Tenis_opdracht.web.Controllers
         [HttpGet]
         public IEnumerable<Gender> Get()
         {
-            return unitOfWork.GenderRepository.Get();
+            return unitOfWork.GenderRepository.Get(includeProperties: "Members");
         }
     }
 }

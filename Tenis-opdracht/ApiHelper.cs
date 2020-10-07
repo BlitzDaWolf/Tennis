@@ -10,7 +10,6 @@ namespace Tenis_opdracht
     public static class ApiHelper
     {
         public static HttpClient ApiClient { get; private set; }
-
         public static readonly string BASEURL = "https://localhost:5001/api/";
         public static IApiCaller apiCaller { get; private set; } = new ApiCaller();
 

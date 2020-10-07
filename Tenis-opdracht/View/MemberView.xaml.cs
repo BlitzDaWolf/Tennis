@@ -20,6 +20,7 @@ namespace Tenis_opdracht.View
         public MemberView()
         {
             InitializeComponent();
+            this.Content = new MemberListPage();
         }
     }
 }

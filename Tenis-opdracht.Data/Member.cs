@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Tenis_opdracht.Data
 {
@@ -18,6 +19,10 @@ namespace Tenis_opdracht.Data
         public string City { get; set; }
         public string PhoneNr { get; set; }
         public bool IsDeleted { get; set; }
+
+        public List<Fine> Fines { get; set; }
+        public List<MemberRole> Roles { get; set; }
+        public List<Game> Games { get; set; }
 
         public string FullName => $"{LastName} {FirstName}";
         public string FullAddress => $"{Address} {Number} {Addition} | {City} {Zipcode}";

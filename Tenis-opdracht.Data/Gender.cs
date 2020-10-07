@@ -1,4 +1,7 @@
-﻿namespace Tenis_opdracht.Data
+﻿using System.Collections;
+using System.Collections.Generic;
+
+namespace Tenis_opdracht.Data
 {
     public class Gender : IIsDeleted
     {

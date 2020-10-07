@@ -2,6 +2,7 @@
 using System.Windows;
 using Tenis_opdracht.Data;
 using Tenis_opdracht.Api;
+using Tenis_opdracht.View;
 
 namespace Tenis_opdracht
 {
@@ -20,7 +21,8 @@ namespace Tenis_opdracht
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            MemberView mv = new MemberView();
+            mv.Show();
         }
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)

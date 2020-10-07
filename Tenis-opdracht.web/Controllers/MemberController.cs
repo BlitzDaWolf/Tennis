@@ -17,9 +17,9 @@ namespace Tenis_opdracht.web.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Member> index()
+        public IEnumerable<Member> index([FromQuery]string includes = "")
         {
-            return unitOfWork.MemberRepository.Get(includeProperties: "Gender");
+            return unitOfWork.MemberRepository.Get(includeProperties: includes);
         }
 
         [HttpPost("/create")]
