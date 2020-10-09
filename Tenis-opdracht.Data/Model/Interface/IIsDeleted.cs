@@ -1,4 +1,4 @@
-﻿namespace Tenis_opdracht.Data
+﻿namespace Tenis_opdracht.Data.Model.Interface
 {
     public interface IIsDeleted
     {

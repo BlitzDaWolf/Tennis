@@ -1,4 +1,6 @@
-﻿namespace Tenis_opdracht.Data
+﻿using Tenis_opdracht.Data.Model.Interface;
+
+namespace Tenis_opdracht.Data.Model
 {
     public class GameResult : IIsDeleted
     {

@@ -1,10 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Linq;
-using System.Drawing;
-using Tenis_opdracht.Data;
-using System.Reflection;
-using System;
-using System.Linq.Expressions;
+using Tenis_opdracht.Data.Model;
+using Tenis_opdracht.Data.Model.Interface;
 
 namespace Tenis_opdracht.DAL.Context
 {

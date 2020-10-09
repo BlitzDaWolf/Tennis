@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Tenis_opdracht.BAL;
 using Tenis_opdracht.DAL.Context;
-using Tenis_opdracht.Data;
+using Tenis_opdracht.Data.Model;
 
 namespace Tenis_opdracht.web.Controllers
 {

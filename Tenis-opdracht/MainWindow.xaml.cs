@@ -3,6 +3,7 @@ using System.Windows;
 using Tenis_opdracht.Data;
 using Tenis_opdracht.Api;
 using Tenis_opdracht.View;
+using Tenis_opdracht.Data.Model;
 
 namespace Tenis_opdracht
 {

@@ -4,7 +4,7 @@ using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using Tenis_opdracht.DAL;
 using Tenis_opdracht.DAL.Context;
-using Tenis_opdracht.Data;
+using Tenis_opdracht.Data.Model;
 
 namespace Tenis_opdracht.BAL
 {

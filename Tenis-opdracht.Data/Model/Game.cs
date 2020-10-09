@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
+using Tenis_opdracht.Data.Model.Interface;
 
-namespace Tenis_opdracht.Data
+namespace Tenis_opdracht.Data.Model
 {
     public class Game : IIsDeleted
     {

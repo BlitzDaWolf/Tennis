@@ -1,7 +1,8 @@
 ﻿using System;
+using Tenis_opdracht.Data.Model.Interface;
 using System.Collections.Generic;
 
-namespace Tenis_opdracht.Data
+namespace Tenis_opdracht.Data.Model
 {
     public class Member : IIsDeleted
     {

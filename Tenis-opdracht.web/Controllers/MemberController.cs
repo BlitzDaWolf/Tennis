@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Tenis_opdracht.BAL;
-using Tenis_opdracht.Data;
+using Tenis_opdracht.Data.Model;
 
 namespace Tenis_opdracht.web.Controllers
 {

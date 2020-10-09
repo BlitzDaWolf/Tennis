@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Tenis_opdracht.Data.Model.Interface;
 
-namespace Tenis_opdracht.Data
+namespace Tenis_opdracht.Data.Model
 {
     public class Gender : IIsDeleted
     {
