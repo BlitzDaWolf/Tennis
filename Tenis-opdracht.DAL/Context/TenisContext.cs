@@ -167,7 +167,7 @@ namespace Tenis_opdracht.DAL.Context
                 e.HasIndex(c => new { c.MemberId, c.RoleId, c.StartDate, c.EndDate }).IsUnique();
 
                 e.HasOne(c => c.Role).WithMany().HasForeignKey(k => k.RoleId);
-                e.HasOne(c => c.Member).WithMany().HasForeignKey(k => k.MemberId);
+                // e.HasOne(c => c.Member).WithMany().HasForeignKey(k => k.MemberId);
 
                 e.ToTable("tblMemberRoles");
             });

@@ -13,6 +13,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Tenis_opdracht.DAL.Context;
 using Tenis_opdracht.BAL;
+using AutoMapper;
+using Tenis_opdracht.web.Mapper;
 
 namespace Tenis_opdracht.web
 {
@@ -35,6 +37,14 @@ namespace Tenis_opdracht.web
             services.AddDbContext<TenisContext>(opt => {
                 opt.UseSqlServer(Configuration.GetConnectionString("conection"), b => b.MigrationsAssembly("Tenis-opdracht.web"));
             });
+
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new TennisMapper());
+            });
+
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
 
             services.AddScoped<UnitOfWork>();
             services.AddSwaggerGen();
