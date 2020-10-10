@@ -29,7 +29,7 @@ namespace Tenis_opdracht
         private async Task loadData()
         {
             var list = await ApiHelper.apiCaller.GetAll<Member>("includes=Gender");
-            this.MemberList.ItemsSource = from m in list select new { m.Id, m.FullName, Gender = m.Gender.Name, m.FullAddress };
+            this.MemberList.ItemsSource = list;
         }
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)

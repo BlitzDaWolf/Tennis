@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Tenis_opdracht.BAL;
 using Tenis_opdracht.Data.Model;
+using Tenis_opdracht.Data.Model.DTO.Member;
 
 namespace Tenis_opdracht.web.Controllers
 {
@@ -10,22 +12,25 @@ namespace Tenis_opdracht.web.Controllers
     public class MemberController : ControllerBase
     {
         UnitOfWork unitOfWork;
+        IMapper mapper;
 
-        public MemberController(UnitOfWork unitOfWork)
+        public MemberController(UnitOfWork unitOfWork, IMapper mapper)
         {
             this.unitOfWork = unitOfWork;
+            this.mapper = mapper;
         }
 
         [HttpGet]
-        public IEnumerable<Member> index([FromQuery]string includes = "")
+        public IEnumerable<MemberDTO> index()
         {
-            return unitOfWork.MemberRepository.Get(includeProperties: includes);
+            var members = unitOfWork.MemberRepository.Get(includeProperties: "Gender");
+            return mapper.Map<IEnumerable<MemberDTO>>(members);
         }
 
         [HttpPost("/create")]
-        public Member Create(Member member)
+        public MemberCreateDTO Create(MemberCreateDTO member)
         {
-            unitOfWork.MemberRepository.Insert(member);
+            unitOfWork.MemberRepository.Insert(mapper.Map<Member>(member));
             unitOfWork.Save();
             return member;
         }

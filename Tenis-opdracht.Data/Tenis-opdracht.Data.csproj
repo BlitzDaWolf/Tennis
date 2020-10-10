@@ -5,8 +5,4 @@
     <RootNamespace>Tenis_opdracht.Data.Model</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="DTO\" />
-  </ItemGroup>
-
 </Project>
