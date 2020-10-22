@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using Tenis_opdracht.Data.Model.DTO.Gender;
+using Tenis_opdracht.DTO.Game;
+using Tenis_opdracht.DTO.Gender;
+using Tenis_opdracht.DTO.Role;
 
-namespace Tenis_opdracht.Data.Model.DTO.Member
+namespace Tenis_opdracht.DTO.Member
 {
     public class MemberDTO
     {
@@ -18,5 +19,7 @@ namespace Tenis_opdracht.Data.Model.DTO.Member
         public string Zipcode { get; set; }
         public string City { get; set; }
         public string PhoneNr { get; set; }
+        public List<MemberRoleDTO> Roles { get; set; }
+        public List<GameDTO> Games { get; set; }
     }
 }

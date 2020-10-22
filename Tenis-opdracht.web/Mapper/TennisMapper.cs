@@ -1,13 +1,9 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Tenis_opdracht.Data;
 using Tenis_opdracht.Data.Model;
-using Tenis_opdracht.Data.Model.DTO;
-using Tenis_opdracht.Data.Model.DTO.Gender;
-using Tenis_opdracht.Data.Model.DTO.Member;
+using Tenis_opdracht.DTO.Game;
+using Tenis_opdracht.DTO.Gender;
+using Tenis_opdracht.DTO.Member;
+using Tenis_opdracht.DTO.Role;
 
 namespace Tenis_opdracht.web.Mapper
 {
@@ -21,7 +17,9 @@ namespace Tenis_opdracht.web.Mapper
             }
             // Game
             {
-
+                CreateMap<Game, GameDTO>().ReverseMap();
+                CreateMap<League, LeagueDTO>().ReverseMap();
+                CreateMap<GameResult, GameResultDTO>().ReverseMap();
             }
             // GameResult
             {
@@ -31,19 +29,16 @@ namespace Tenis_opdracht.web.Mapper
             {
                 CreateMap<Gender, GenderDTO>().ReverseMap();
             }
-            // League
             // Member
             {
                 CreateMap<Member, MemberDTO>().ReverseMap();
+                CreateMap<Member, UpdateMemberDTO>().ReverseMap();
                 CreateMap<Member, MemberCreateDTO>().ReverseMap();
-            }
-            // MemberRole
-            {
-
             }
             // Role
             {
-
+                CreateMap<Role, RoleDTO>().ReverseMap();
+                CreateMap<MemberRole, MemberRoleDTO>().ReverseMap();
             }
         }
     }

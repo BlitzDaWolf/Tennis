@@ -12,7 +12,7 @@ namespace Tenis_opdracht.Data.Model
         public string LastName { get; set; }
         public DateTime BirthDate { get; set; }
         public int GenderId { get; set; }
-        public Gender Gender { get; set; }
+        public virtual Gender Gender { get; set; }
         public string Address { get; set; }
         public string Number { get; set; }
         public string Addition { get; set; }
@@ -21,9 +21,9 @@ namespace Tenis_opdracht.Data.Model
         public string PhoneNr { get; set; }
         public bool IsDeleted { get; set; }
 
-        public List<Fine> Fines { get; set; }
-        public List<MemberRole> Roles { get; set; }
-        public List<Game> Games { get; set; }
+        public virtual List<Fine> Fines { get; set; }
+        public virtual List<MemberRole> Roles { get; set; }
+        public virtual List<Game> Games { get; set; }
 
         public string FullName => $"{LastName} {FirstName}";
         public string FullAddress => $"{Address} {Number} {Addition} | {City} {Zipcode}";

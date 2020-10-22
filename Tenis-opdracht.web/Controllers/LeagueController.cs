@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Tenis_opdracht.BAL;
 using Tenis_opdracht.Data.Model;
+using Tenis_opdracht.DTO.Game;
 
 namespace Tenis_opdracht.web.Controllers
 {
@@ -13,18 +15,19 @@ namespace Tenis_opdracht.web.Controllers
     [ApiController]
     public class LeagueController : ControllerBase
     {
+        private readonly UnitOfWork unitOfWork;
+        private readonly IMapper mapper;
 
-        UnitOfWork unitOfWork;
-
-        public LeagueController(UnitOfWork unitOfWork)
+        public LeagueController(UnitOfWork unitOfWork, IMapper mapper)
         {
             this.unitOfWork = unitOfWork;
+            this.mapper = mapper;
         }
 
         [HttpGet]
-        public IEnumerable<League> index([FromQuery] string includes = "")
+        public IEnumerable<LeagueDTO> index()
         {
-            return unitOfWork.LeagueRepository.Get(includeProperties: includes);
+            return mapper.Map<IEnumerable<LeagueDTO>>(unitOfWork.LeagueRepository.Get());
         }
 
         [HttpPost("/create")]
@@ -35,18 +38,10 @@ namespace Tenis_opdracht.web.Controllers
             return League;
         }
 
-        [HttpPut]
-        public League Update(League League)
-        {
-            unitOfWork.LeagueRepository.Update(League);
-            unitOfWork.Save();
-            return League;
-        }
-
         [HttpGet("{id}")]
-        public League GetById(int id)
+        public LeagueDTO GetById(int id)
         {
-            return unitOfWork.LeagueRepository.GetByID(id);
+            return mapper.Map<LeagueDTO>(unitOfWork.LeagueRepository.GetByID(id));
         }
     }
 }

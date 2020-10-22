@@ -20,7 +20,7 @@
     "Tenis_opdracht.web": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/member",
+      "launchUrl": "",
       "applicationUrl": "https://api.tenis.local:5001;http://api.tenis.local:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

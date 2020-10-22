@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Tenis_opdracht.Data.Model.DTO.Member
+namespace Tenis_opdracht.DTO.Member
 {
     public class MemberCreateDTO
     {

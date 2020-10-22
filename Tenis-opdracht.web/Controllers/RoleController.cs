@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Tenis_opdracht.BAL;
 using Tenis_opdracht.Data.Model;
+using Tenis_opdracht.DTO.Role;
 
 namespace Tenis_opdracht.web.Controllers
 {
@@ -13,40 +15,19 @@ namespace Tenis_opdracht.web.Controllers
     [ApiController]
     public class RoleController : ControllerBase
     {
+        private readonly UnitOfWork unitOfWork;
+        private readonly IMapper mapper;
 
-        UnitOfWork unitOfWork;
-
-        public RoleController(UnitOfWork unitOfWork)
+        public RoleController(UnitOfWork unitOfWork, IMapper mapper)
         {
             this.unitOfWork = unitOfWork;
-        }
-
-        [HttpGet]
-        public IEnumerable<Role> index([FromQuery] string includes = "")
-        {
-            return unitOfWork.RoleRepository.Get(includeProperties: includes);
-        }
-
-        [HttpPost("/create")]
-        public Role Create(Role Role)
-        {
-            unitOfWork.RoleRepository.Insert(Role);
-            unitOfWork.Save();
-            return Role;
-        }
-
-        [HttpPut]
-        public Role Update(Role Role)
-        {
-            unitOfWork.RoleRepository.Update(Role);
-            unitOfWork.Save();
-            return Role;
+            this.mapper = mapper;
         }
 
         [HttpGet("{id}")]
-        public Role GetById(int id)
+        public RoleDTO GetById(int id)
         {
-            return unitOfWork.RoleRepository.GetByID(id);
+            return mapper.Map<RoleDTO>(unitOfWork.RoleRepository.GetByID(id));
         }
     }
 }

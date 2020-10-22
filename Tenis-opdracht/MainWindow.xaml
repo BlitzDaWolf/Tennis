@@ -6,11 +6,14 @@
         xmlns:local="clr-namespace:Tenis_opdracht"
         Loaded="Window_Loaded"
         mc:Ignorable="d"
-        Title="Tenis club AP" Height="450" Width="800" ResizeMode="NoResize">
+        Title="Tenis club AP" Height="450" Width="800">
     <Grid>
-        <Button Content="Members" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" Width="55" Click="Button_Click"/>
-        <Button Content="2" HorizontalAlignment="Center" Margin="10,70,0,0" VerticalAlignment="Top" Width="115"/>
-        <Button Content="Games" HorizontalAlignment="Right" Margin="0,10,50,0" VerticalAlignment="Top" Width="55"/>
+        <Grid Margin="0,0,0,0" Width="150" HorizontalAlignment="Left">
+            <Button Content="Members" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="55" Click="Button_Click"/>
+            <Button Content="Games" HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" Width="55" Click="Button_Click"/>
+            <Button Content="Results" HorizontalAlignment="Center" Margin="0,70,0,0" VerticalAlignment="Top" Width="55" Click="Button_Click"/>
+        </Grid>
+        <Frame NavigationUIVisibility="Hidden" Margin="150,0,0,0" Name="test"/>
 
     </Grid>
 </Window>

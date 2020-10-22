@@ -11,9 +11,10 @@
 
     <Grid>
         <Grid>
-            <DataGrid Name="MemberList" Margin="10,10,10,40" IsReadOnly="True"></DataGrid>
+            <DataGrid Name="MemberList" Margin="10,40,10,40" HeadersVisibility="Column" MouseDoubleClick="MemberList_MouseDoubleClick" IsReadOnly="True" />
             <Button Height="20" Width="150" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,10" Name="refresh" Click="refresh_Click">Refresh</Button>
             <Button Height="20" Width="150" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10">Add</Button>
+            <TextBox TextChanged="filter_TextChanged" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" Name="filter"/>
         </Grid>
     </Grid>
 </Page>

@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Tenis_opdracht.BAL;
 using Tenis_opdracht.Data.Model;
+using Tenis_opdracht.DTO.Game;
 
 namespace Tenis_opdracht.web.Controllers
 {
@@ -13,40 +15,29 @@ namespace Tenis_opdracht.web.Controllers
     [ApiController]
     public class GameResultController : ControllerBase
     {
+        private readonly UnitOfWork unitOfWork;
+        private readonly IMapper mapper;
 
-        UnitOfWork unitOfWork;
-
-        public GameResultController(UnitOfWork unitOfWork)
+        public GameResultController(UnitOfWork unitOfWork, IMapper mapper)
         {
             this.unitOfWork = unitOfWork;
+            this.mapper = mapper;
         }
 
-        [HttpGet]
-        public IEnumerable<GameResult> index([FromQuery] string includes = "")
+        [HttpPost("create")]
+        public StatusCodeResult createResult(CreatGameResultDTO result)
         {
-            return unitOfWork.GameResultRepository.Get(includeProperties: includes);
-        }
-
-        [HttpPost("/create")]
-        public GameResult Create(GameResult GameResult)
-        {
-            unitOfWork.GameResultRepository.Insert(GameResult);
+            unitOfWork.GameResultRepository.Insert(mapper.Map<GameResult>(result));
             unitOfWork.Save();
-            return GameResult;
+            return Ok();
         }
 
         [HttpPut]
-        public GameResult Update(GameResult GameResult)
+        public UpdateGameResultDTO Update(UpdateGameResultDTO GameResult)
         {
-            unitOfWork.GameResultRepository.Update(GameResult);
+            unitOfWork.GameResultRepository.Update(mapper.Map<GameResult>(GameResult));
             unitOfWork.Save();
             return GameResult;
-        }
-
-        [HttpGet("{id}")]
-        public GameResult GetById(int id)
-        {
-            return unitOfWork.GameResultRepository.GetByID(id);
         }
     }
 }
