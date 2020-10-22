@@ -1,0 +1,25 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using Tenis_opdracht.Data.Model;
+
+namespace Tenis_opdracht.DAL.Configuration
+{
+    public class LeagueConfiguration : BaseEntityTypeConfiguration<League>
+    {
+        public LeagueConfiguration() : base("tblLeagues") { }
+
+        public override void Configure(EntityTypeBuilder<League> e)
+        {
+            e.HasKey(c => c.Id);
+            e.Property(c => c.Id).ValueGeneratedOnAdd();
+
+            e.Property(c => c.Name).IsRequired().HasColumnType("VARCHAR(10)").HasMaxLength(10);
+            e.HasIndex(c => c.Name).IsUnique();
+
+            base.Configure(e);
+        }
+    }
+}

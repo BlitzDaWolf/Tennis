@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices.ComTypes;
-using System.Text;
 using Tenis_opdracht.DAL;
 using Tenis_opdracht.DAL.Context;
+using Tenis_opdracht.DAL.Repository;
 using Tenis_opdracht.Data.Model;
 
 namespace Tenis_opdracht.BAL
@@ -12,35 +10,31 @@ namespace Tenis_opdracht.BAL
     {
         public TenisContext context = new TenisContext();
 
-        public UnitOfWork()
-        {
-            var i = 0;
-        }
         public UnitOfWork(TenisContext context)
         {
             this.context = context;
         }
 
         #region private repositorys
-        private GenericRepository<Fine>         fineRepository;
-        private GenericRepository<Game>         gameRepository;
-        private GenericRepository<GameResult>   gameResultRepository;
-        private GenericRepository<Gender>       genderRepository;
-        private GenericRepository<League>       leagueRepository;
-        private GenericRepository<Member>       memberRepository;
-        private GenericRepository<MemberRole>   memberRoleRepository;
-        private GenericRepository<Role>         roleRepository;
+        private FineRepository          fineRepository;
+        private GameRepository          gameRepository;
+        private GameResultRepository    gameResultRepository;
+        private GenderRepository        genderRepository;
+        private LeagueRepository        leagueRepository;
+        private MemberRepository        memberRepository;
+        private MemberRoleRepository    memberRoleRepository;
+        private RoleRepository          roleRepository;
         #endregion
 
         #region public repositorys
-        public GenericRepository<Fine> FineRepository => this.fineRepository ?? new GenericRepository<Fine>(context);
-        public GenericRepository<Game> GameRepository => this.gameRepository ?? new GenericRepository<Game>(context);
-        public GenericRepository<GameResult> GameResultRepository => this.gameResultRepository ?? new GenericRepository<GameResult>(context);
-        public GenericRepository<Gender> GenderRepository => this.genderRepository ?? new GenericRepository<Gender>(context);
-        public GenericRepository<League> LeagueRepository => this.leagueRepository ?? new GenericRepository<League>(context);
-        public GenericRepository<Member> MemberRepository => this.memberRepository?? new GenericRepository<Member>(context);
-        public GenericRepository<MemberRole> MemberRoleRepository => this.memberRoleRepository?? new GenericRepository<MemberRole>(context);
-        public GenericRepository<Role> RoleRepository => this.roleRepository ?? new GenericRepository<Role>(context);
+        public FineRepository FineRepository => this.fineRepository ?? new FineRepository(context);
+        public GameRepository GameRepository => this.gameRepository ?? new GameRepository(context);
+        public GameResultRepository GameResultRepository => this.gameResultRepository ?? new GameResultRepository(context);
+        public GenderRepository GenderRepository => this.genderRepository ?? new GenderRepository(context);
+        public LeagueRepository LeagueRepository => this.leagueRepository ?? new LeagueRepository(context);
+        public MemberRepository MemberRepository => this.memberRepository?? new MemberRepository(context);
+        public MemberRoleRepository MemberRoleRepository => this.memberRoleRepository ?? new MemberRoleRepository(context);
+        public RoleRepository RoleRepository => this.roleRepository ?? new RoleRepository(context);
         #endregion
 
         public void Save()
@@ -55,9 +49,10 @@ namespace Tenis_opdracht.BAL
         {
             if (!this.disposed)
             {
-                if (!disposing)
+                if (disposing)
                 {
                     // Dispose all contextes
+                    context.Dispose();
                 }
             }
             this.disposed = true;
