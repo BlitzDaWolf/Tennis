@@ -15,11 +15,11 @@ namespace Tenis_opdracht.web.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.8")
+                .HasAnnotation("ProductVersion", "3.1.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Tenis_opdracht.Data.Fine", b =>
+            modelBuilder.Entity("Tenis_opdracht.Data.Model.Fine", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -57,7 +57,7 @@ namespace Tenis_opdracht.web.Migrations
                     b.ToTable("tblMemberFines");
                 });
 
-            modelBuilder.Entity("Tenis_opdracht.Data.Game", b =>
+            modelBuilder.Entity("Tenis_opdracht.Data.Model.Game", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -94,7 +94,7 @@ namespace Tenis_opdracht.web.Migrations
                     b.ToTable("tblGames");
                 });
 
-            modelBuilder.Entity("Tenis_opdracht.Data.GameResult", b =>
+            modelBuilder.Entity("Tenis_opdracht.Data.Model.GameResult", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -105,7 +105,9 @@ namespace Tenis_opdracht.web.Migrations
                         .HasColumnType("int");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
 
                     b.Property<int>("ScoreOpponent")
                         .HasColumnType("INT")
@@ -116,8 +118,7 @@ namespace Tenis_opdracht.web.Migrations
                         .HasMaxLength(3);
 
                     b.Property<int>("SetNr")
-                        .HasColumnName("INT")
-                        .HasColumnType("int")
+                        .HasColumnType("INT")
                         .HasMaxLength(3);
 
                     b.HasKey("Id");
@@ -130,7 +131,7 @@ namespace Tenis_opdracht.web.Migrations
                     b.ToTable("tblGameResults");
                 });
 
-            modelBuilder.Entity("Tenis_opdracht.Data.Gender", b =>
+            modelBuilder.Entity("Tenis_opdracht.Data.Model.Gender", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -153,9 +154,23 @@ namespace Tenis_opdracht.web.Migrations
                         .IsUnique();
 
                     b.ToTable("tblGenders");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            IsDeleted = false,
+                            Name = "Male"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            IsDeleted = false,
+                            Name = "Female"
+                        });
                 });
 
-            modelBuilder.Entity("Tenis_opdracht.Data.League", b =>
+            modelBuilder.Entity("Tenis_opdracht.Data.Model.League", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -178,9 +193,23 @@ namespace Tenis_opdracht.web.Migrations
                         .IsUnique();
 
                     b.ToTable("tblLeagues");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            IsDeleted = false,
+                            Name = "Junoir"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            IsDeleted = false,
+                            Name = "Pro"
+                        });
                 });
 
-            modelBuilder.Entity("Tenis_opdracht.Data.Member", b =>
+            modelBuilder.Entity("Tenis_opdracht.Data.Model.Member", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -242,7 +271,7 @@ namespace Tenis_opdracht.web.Migrations
                     b.ToTable("tblMembers");
                 });
 
-            modelBuilder.Entity("Tenis_opdracht.Data.MemberRole", b =>
+            modelBuilder.Entity("Tenis_opdracht.Data.Model.MemberRole", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -276,7 +305,7 @@ namespace Tenis_opdracht.web.Migrations
                     b.ToTable("tblMemberRoles");
                 });
 
-            modelBuilder.Entity("Tenis_opdracht.Data.Role", b =>
+            modelBuilder.Entity("Tenis_opdracht.Data.Model.Role", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -298,59 +327,73 @@ namespace Tenis_opdracht.web.Migrations
                         .IsUnique();
 
                     b.ToTable("tblRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            IsDeleted = false,
+                            Name = "User"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            IsDeleted = false,
+                            Name = "Admin"
+                        });
                 });
 
-            modelBuilder.Entity("Tenis_opdracht.Data.Fine", b =>
+            modelBuilder.Entity("Tenis_opdracht.Data.Model.Fine", b =>
                 {
-                    b.HasOne("Tenis_opdracht.Data.Member", "Member")
-                        .WithMany()
+                    b.HasOne("Tenis_opdracht.Data.Model.Member", "Member")
+                        .WithMany("Fines")
                         .HasForeignKey("MemberId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Tenis_opdracht.Data.Game", b =>
+            modelBuilder.Entity("Tenis_opdracht.Data.Model.Game", b =>
                 {
-                    b.HasOne("Tenis_opdracht.Data.League", "League")
+                    b.HasOne("Tenis_opdracht.Data.Model.League", "League")
                         .WithMany()
                         .HasForeignKey("LeagueId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Tenis_opdracht.Data.Member", "Member")
-                        .WithMany()
+                    b.HasOne("Tenis_opdracht.Data.Model.Member", "Member")
+                        .WithMany("Games")
                         .HasForeignKey("MemberId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Tenis_opdracht.Data.GameResult", b =>
+            modelBuilder.Entity("Tenis_opdracht.Data.Model.GameResult", b =>
                 {
-                    b.HasOne("Tenis_opdracht.Data.Game", "Game")
-                        .WithMany("GameResults")
+                    b.HasOne("Tenis_opdracht.Data.Model.Game", "Game")
+                        .WithMany("Results")
                         .HasForeignKey("GameId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Tenis_opdracht.Data.Member", b =>
+            modelBuilder.Entity("Tenis_opdracht.Data.Model.Member", b =>
                 {
-                    b.HasOne("Tenis_opdracht.Data.Gender", "Gender")
+                    b.HasOne("Tenis_opdracht.Data.Model.Gender", "Gender")
                         .WithMany()
                         .HasForeignKey("GenderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Tenis_opdracht.Data.MemberRole", b =>
+            modelBuilder.Entity("Tenis_opdracht.Data.Model.MemberRole", b =>
                 {
-                    b.HasOne("Tenis_opdracht.Data.Member", "Member")
-                        .WithMany()
+                    b.HasOne("Tenis_opdracht.Data.Model.Member", "Member")
+                        .WithMany("Roles")
                         .HasForeignKey("MemberId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Tenis_opdracht.Data.Role", "Role")
+                    b.HasOne("Tenis_opdracht.Data.Model.Role", "Role")
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)

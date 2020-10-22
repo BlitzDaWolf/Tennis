@@ -19,6 +19,11 @@ namespace Tenis_opdracht.DAL.Configuration
             e.Property(c => c.Name).IsRequired().HasColumnType("VARCHAR(20)");
             e.HasIndex(c => c.Name).IsUnique();
 
+            e.HasData(
+                new Role { Id = 1, Name = "User" },
+                new Role { Id = 2, Name = "Admin" }
+            );
+
             base.Configure(e);
         }
     }

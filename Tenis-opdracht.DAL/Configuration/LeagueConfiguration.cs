@@ -19,6 +19,11 @@ namespace Tenis_opdracht.DAL.Configuration
             e.Property(c => c.Name).IsRequired().HasColumnType("VARCHAR(10)").HasMaxLength(10);
             e.HasIndex(c => c.Name).IsUnique();
 
+            e.HasData(
+                new League { Id = 1, Name = "Junoir"},
+                new League { Id = 2, Name = "Pro"}
+            );
+
             base.Configure(e);
         }
     }

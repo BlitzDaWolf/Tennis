@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Tenis_opdracht.web.Migrations
 {
-    public partial class init : Migration
+    public partial class basedata : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -168,10 +168,10 @@ namespace Tenis_opdracht.web.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     GameId = table.Column<int>(nullable: false),
-                    INT = table.Column<int>(maxLength: 3, nullable: false),
+                    SetNr = table.Column<int>(type: "INT", maxLength: 3, nullable: false),
                     ScoreTeamMember = table.Column<int>(type: "INT", maxLength: 3, nullable: false),
                     ScoreOpponent = table.Column<int>(type: "INT", maxLength: 3, nullable: false),
-                    IsDeleted = table.Column<bool>(nullable: false)
+                    IsDeleted = table.Column<bool>(nullable: false, defaultValue: false)
                 },
                 constraints: table =>
                 {
@@ -184,15 +184,42 @@ namespace Tenis_opdracht.web.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "tblGenders",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Male" },
+                    { 2, "Female" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "tblLeagues",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Junoir" },
+                    { 2, "Pro" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "tblRoles",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "User" },
+                    { 2, "Admin" }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_tblGameResults_GameId",
                 table: "tblGameResults",
                 column: "GameId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_tblGameResults_INT_GameId",
+                name: "IX_tblGameResults_SetNr_GameId",
                 table: "tblGameResults",
-                columns: new[] { "INT", "GameId" },
+                columns: new[] { "SetNr", "GameId" },
                 unique: true);
 
             migrationBuilder.CreateIndex(
